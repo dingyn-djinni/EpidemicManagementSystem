@@ -1,6 +1,6 @@
 ﻿namespace ELAB_Information
 {
-    partial class register
+    partial class inputForms
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // register
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 376);
-            this.Name = "register";
-            this.Text = "注册";
-            this.Load += new System.EventHandler(this.register_Load);
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "inputForms";
         }
 
         #endregion

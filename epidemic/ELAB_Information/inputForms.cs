@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ELAB_Information
 {
-    public partial class register : Form
+    public partial class inputForms : Form
     {
-        public register()
+        public inputForms()
         {
             InitializeComponent();
-        }
-
-        private void register_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

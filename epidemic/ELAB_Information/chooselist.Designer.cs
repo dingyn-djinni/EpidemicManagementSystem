@@ -30,6 +30,7 @@
         {
             this.upadte = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.Button();
+            this.input = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // upadte
@@ -52,15 +53,26 @@
             this.search.UseVisualStyleBackColor = true;
             this.search.Click += new System.EventHandler(this.search_Click);
             // 
+            // input
+            // 
+            this.input.Location = new System.Drawing.Point(93, 127);
+            this.input.Name = "input";
+            this.input.Size = new System.Drawing.Size(155, 41);
+            this.input.TabIndex = 2;
+            this.input.Text = "输入数据";
+            this.input.UseVisualStyleBackColor = true;
+            this.input.Click += new System.EventHandler(this.input_Click);
+            // 
             // chooselist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 372);
+            this.Controls.Add(this.input);
             this.Controls.Add(this.search);
             this.Controls.Add(this.upadte);
             this.Name = "chooselist";
-            this.Text = "chooselist";
+            this.Text = "管理员菜单";
             this.ResumeLayout(false);
 
         }
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button upadte;
         private System.Windows.Forms.Button search;
+        private System.Windows.Forms.Button input;
     }
 }
