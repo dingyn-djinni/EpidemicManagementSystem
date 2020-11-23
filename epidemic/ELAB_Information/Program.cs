@@ -118,6 +118,25 @@ namespace ELAB_Information
             }
             return null;
         }
+
+        public int getStrDate(int mon,int day)
+        {
+            int i = 0;
+            int days = 0;
+            for(i = 0; i < mon-1; i++)
+            {
+                days = days + daysInMonth[i];
+            }
+            if (daysInMonth[i] >= day)
+            {
+                days = days + day;
+                return days;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 
     //md5函数类

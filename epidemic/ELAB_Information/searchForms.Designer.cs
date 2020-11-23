@@ -29,142 +29,88 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
-            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.allDefinite = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.newDefinite = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.allCure = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.newCure = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.allDeath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.newDeath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nowSuspected = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.newSuspected = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nowDanger = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.newDanger = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.allData = new System.Windows.Forms.Button();
             this.viewmode = new System.Windows.Forms.Button();
             this.keyPoint = new System.Windows.Forms.Button();
             this.averdata = new System.Windows.Forms.Button();
             this.startdate = new System.Windows.Forms.Label();
             this.enddate = new System.Windows.Forms.Label();
-            this.startdates = new System.Windows.Forms.TextBox();
-            this.enddates = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.month1 = new System.Windows.Forms.TextBox();
+            this.day1 = new System.Windows.Forms.TextBox();
+            this.month2 = new System.Windows.Forms.TextBox();
+            this.day2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listView1
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.date,
-            this.allDefinite,
-            this.newDefinite,
-            this.allCure,
-            this.newCure,
-            this.allDeath,
-            this.newDeath,
-            this.nowSuspected,
-            this.newSuspected,
-            this.nowDanger,
-            this.newDanger});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(18, 75);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Location = new System.Drawing.Point(24, 94);
+            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(682, 370);
+            this.listView1.Size = new System.Drawing.Size(908, 462);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // date
-            // 
-            this.date.Text = "日期";
-            this.date.Width = 52;
-            // 
-            // allDefinite
-            // 
-            this.allDefinite.Text = "累计确诊";
-            // 
-            // newDefinite
-            // 
-            this.newDefinite.Text = "新增确诊";
-            // 
-            // allCure
-            // 
-            this.allCure.Text = "累计治愈";
-            // 
-            // newCure
-            // 
-            this.newCure.Text = "新增治愈";
-            // 
-            // allDeath
-            // 
-            this.allDeath.Text = "累计死亡";
-            // 
-            // newDeath
-            // 
-            this.newDeath.Text = "新增死亡";
-            // 
-            // nowSuspected
-            // 
-            this.nowSuspected.Text = "现有疑似";
-            // 
-            // newSuspected
-            // 
-            this.newSuspected.Text = "新增疑似";
-            // 
-            // nowDanger
-            // 
-            this.nowDanger.Text = "现有危重";
-            // 
-            // newDanger
-            // 
-            this.newDanger.Text = "新增危重";
-            // 
             // allData
             // 
-            this.allData.Location = new System.Drawing.Point(736, 75);
+            this.allData.Location = new System.Drawing.Point(981, 94);
+            this.allData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.allData.Name = "allData";
-            this.allData.Size = new System.Drawing.Size(159, 36);
+            this.allData.Size = new System.Drawing.Size(212, 45);
             this.allData.TabIndex = 1;
             this.allData.Text = "全国数据";
             this.allData.UseVisualStyleBackColor = true;
+            this.allData.Click += new System.EventHandler(this.allData_Click);
             // 
             // viewmode
             // 
-            this.viewmode.Location = new System.Drawing.Point(736, 140);
+            this.viewmode.Location = new System.Drawing.Point(981, 175);
+            this.viewmode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.viewmode.Name = "viewmode";
-            this.viewmode.Size = new System.Drawing.Size(159, 36);
+            this.viewmode.Size = new System.Drawing.Size(212, 45);
             this.viewmode.TabIndex = 2;
             this.viewmode.Text = "图形显示";
             this.viewmode.UseVisualStyleBackColor = true;
             // 
             // keyPoint
             // 
-            this.keyPoint.Location = new System.Drawing.Point(736, 204);
+            this.keyPoint.Location = new System.Drawing.Point(981, 255);
+            this.keyPoint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.keyPoint.Name = "keyPoint";
-            this.keyPoint.Size = new System.Drawing.Size(159, 36);
+            this.keyPoint.Size = new System.Drawing.Size(212, 45);
             this.keyPoint.TabIndex = 3;
             this.keyPoint.Text = "拐点查看";
             this.keyPoint.UseVisualStyleBackColor = true;
+            this.keyPoint.Click += new System.EventHandler(this.keyPoint_Click);
             // 
             // averdata
             // 
-            this.averdata.Location = new System.Drawing.Point(736, 260);
+            this.averdata.Location = new System.Drawing.Point(981, 325);
+            this.averdata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.averdata.Name = "averdata";
-            this.averdata.Size = new System.Drawing.Size(159, 36);
+            this.averdata.Size = new System.Drawing.Size(212, 45);
             this.averdata.TabIndex = 4;
             this.averdata.Text = "平均数据";
             this.averdata.UseVisualStyleBackColor = true;
+            this.averdata.Click += new System.EventHandler(this.averdata_Click);
             // 
             // startdate
             // 
             this.startdate.AutoSize = true;
-            this.startdate.Location = new System.Drawing.Point(705, 309);
+            this.startdate.Location = new System.Drawing.Point(940, 386);
+            this.startdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.startdate.Name = "startdate";
-            this.startdate.Size = new System.Drawing.Size(53, 12);
+            this.startdate.Size = new System.Drawing.Size(67, 15);
             this.startdate.TabIndex = 7;
             this.startdate.Text = "起始日期";
             this.startdate.Click += new System.EventHandler(this.label3_Click);
@@ -172,61 +118,131 @@
             // enddate
             // 
             this.enddate.AutoSize = true;
-            this.enddate.Location = new System.Drawing.Point(705, 337);
+            this.enddate.Location = new System.Drawing.Point(940, 421);
+            this.enddate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.enddate.Name = "enddate";
-            this.enddate.Size = new System.Drawing.Size(53, 12);
+            this.enddate.Size = new System.Drawing.Size(67, 15);
             this.enddate.TabIndex = 8;
             this.enddate.Text = "截止日期";
             // 
-            // startdates
-            // 
-            this.startdates.Location = new System.Drawing.Point(765, 303);
-            this.startdates.Name = "startdates";
-            this.startdates.Size = new System.Drawing.Size(130, 21);
-            this.startdates.TabIndex = 9;
-            // 
-            // enddates
-            // 
-            this.enddates.Location = new System.Drawing.Point(765, 334);
-            this.enddates.Name = "enddates";
-            this.enddates.Size = new System.Drawing.Size(130, 21);
-            this.enddates.TabIndex = 10;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(736, 361);
+            this.button1.Location = new System.Drawing.Point(981, 451);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 36);
+            this.button1.Size = new System.Drawing.Size(212, 45);
             this.button1.TabIndex = 11;
             this.button1.Text = "省份查询";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(765, 413);
+            this.textBox1.Location = new System.Drawing.Point(1020, 516);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 21);
+            this.textBox1.Size = new System.Drawing.Size(172, 25);
             this.textBox1.TabIndex = 12;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(717, 416);
+            this.label1.Location = new System.Drawing.Point(956, 520);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.Size = new System.Drawing.Size(37, 15);
             this.label1.TabIndex = 13;
             this.label1.Text = "省份";
             // 
+            // month1
+            // 
+            this.month1.Location = new System.Drawing.Point(1014, 377);
+            this.month1.Name = "month1";
+            this.month1.Size = new System.Drawing.Size(37, 25);
+            this.month1.TabIndex = 14;
+            this.month1.TextChanged += new System.EventHandler(this.month1_TextChanged);
+            // 
+            // day1
+            // 
+            this.day1.Location = new System.Drawing.Point(1087, 377);
+            this.day1.Name = "day1";
+            this.day1.Size = new System.Drawing.Size(37, 25);
+            this.day1.TabIndex = 15;
+            this.day1.TextChanged += new System.EventHandler(this.day1_TextChanged);
+            // 
+            // month2
+            // 
+            this.month2.Location = new System.Drawing.Point(1014, 418);
+            this.month2.Name = "month2";
+            this.month2.Size = new System.Drawing.Size(37, 25);
+            this.month2.TabIndex = 16;
+            this.month2.TextChanged += new System.EventHandler(this.month2_TextChanged);
+            // 
+            // day2
+            // 
+            this.day2.Location = new System.Drawing.Point(1087, 418);
+            this.day2.Name = "day2";
+            this.day2.Size = new System.Drawing.Size(37, 25);
+            this.day2.TabIndex = 17;
+            this.day2.TextChanged += new System.EventHandler(this.day2_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1058, 380);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(22, 15);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "月";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1058, 421);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(22, 15);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "月";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1142, 380);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(22, 15);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "日";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1142, 421);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(22, 15);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "日";
+            // 
             // searchForms
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 514);
+            this.ClientSize = new System.Drawing.Size(1209, 642);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.day2);
+            this.Controls.Add(this.month2);
+            this.Controls.Add(this.day1);
+            this.Controls.Add(this.month1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.enddates);
-            this.Controls.Add(this.startdates);
             this.Controls.Add(this.enddate);
             this.Controls.Add(this.startdate);
             this.Controls.Add(this.averdata);
@@ -234,7 +250,7 @@
             this.Controls.Add(this.viewmode);
             this.Controls.Add(this.allData);
             this.Controls.Add(this.listView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "searchForms";
             this.Text = "查询";
             this.Load += new System.EventHandler(this.searchForms_Load);
@@ -246,27 +262,22 @@
         #endregion
 
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader date;
-        private System.Windows.Forms.ColumnHeader allDefinite;
-        private System.Windows.Forms.ColumnHeader newDefinite;
-        private System.Windows.Forms.ColumnHeader allCure;
-        private System.Windows.Forms.ColumnHeader newCure;
-        private System.Windows.Forms.ColumnHeader allDeath;
-        private System.Windows.Forms.ColumnHeader newDeath;
-        private System.Windows.Forms.ColumnHeader nowSuspected;
-        private System.Windows.Forms.ColumnHeader newSuspected;
-        private System.Windows.Forms.ColumnHeader nowDanger;
-        private System.Windows.Forms.ColumnHeader newDanger;
         private System.Windows.Forms.Button allData;
         private System.Windows.Forms.Button viewmode;
         private System.Windows.Forms.Button keyPoint;
         private System.Windows.Forms.Button averdata;
         private System.Windows.Forms.Label startdate;
         private System.Windows.Forms.Label enddate;
-        private System.Windows.Forms.TextBox startdates;
-        private System.Windows.Forms.TextBox enddates;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox month1;
+        private System.Windows.Forms.TextBox day1;
+        private System.Windows.Forms.TextBox month2;
+        private System.Windows.Forms.TextBox day2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
