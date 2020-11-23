@@ -152,7 +152,7 @@ namespace ELAB_Information
             register c1 = new register();
             this.Hide();
             c1.ShowDialog();
-            this.Close();
+            this.Show();
         }
     }
 }

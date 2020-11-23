@@ -52,6 +52,10 @@ namespace ELAB_Information
                 Console.WriteLine(e.ToString());
                 return 0;
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         //对数据库进行各种查询的统一语句
@@ -71,10 +75,50 @@ namespace ELAB_Information
                 MySqlDataReader reader = null;
                 return reader;
             }
-
+            
         }
     }
 
+    //日期处理函数
+    public class Dates
+    {
+        private int[] daysInMonth;
+
+        //初始化每月天数
+        public Dates()
+        {
+            daysInMonth = new int[12];
+            daysInMonth[0] = 31;
+            daysInMonth[1] = 29;
+            daysInMonth[2] = 31;
+            daysInMonth[3] = 30;
+            daysInMonth[4] = 31;
+            daysInMonth[5] = 30;
+            daysInMonth[6] = 31;
+            daysInMonth[7] = 31;
+            daysInMonth[8] = 30;
+            daysInMonth[9] = 31;
+            daysInMonth[10] = 30;
+            daysInMonth[11] = 31;
+        }
+
+        public string getDateStr(int date)
+        {
+            for(int i = 0; i < 12; i++)
+            {
+                if (date - daysInMonth[i] >= 0)
+                {
+                    date = date - daysInMonth[i];
+                }
+                else
+                {
+                    string tmp = (i + 1).ToString() + "月" + date.ToString() + "日";
+                    return tmp;
+                }
+            }
+            return null;
+        }
+    }
 
     //md5函数类
     public partial class MD5Helper

@@ -1,6 +1,6 @@
 ﻿namespace ELAB_Information
 {
-    partial class inputForms
+    partial class inputforms
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // inputforms
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "inputForms";
+            this.Name = "inputforms";
+            this.Text = "输入";
+            this.Load += new System.EventHandler(this.输入_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

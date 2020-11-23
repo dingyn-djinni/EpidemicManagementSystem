@@ -37,7 +37,7 @@ namespace ELAB_Information
 
         private void input_Click(object sender, EventArgs e)
         {
-            inputForms c1 = new inputForms();
+            inputforms c1 = new inputforms();
             this.Hide();
             c1.ShowDialog();
             this.Show();
