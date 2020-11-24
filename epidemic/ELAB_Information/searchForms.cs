@@ -276,6 +276,11 @@ namespace ELAB_Information
                 m2 = int.Parse(month2.Text);
                 d1 = int.Parse(day1.Text);
                 d2 = int.Parse(day2.Text);
+                if(m1<0 || m2<0 || d1<0 || d2 < 0)
+                {
+                    MessageBox.Show("数据不合法", "错误提示");
+                    return;
+                }
                 Dates dates = new Dates();
                 int days1=dates.getStrDate(m1, d1);
                 int days2 = dates.getStrDate(m2, d2);
@@ -344,7 +349,7 @@ namespace ELAB_Information
 
         }
 
-        // 图表显示切换
+        // 图表显示
         private void viewmode_Click(object sender, EventArgs e)
         {
             DataChart c1 = new DataChart();

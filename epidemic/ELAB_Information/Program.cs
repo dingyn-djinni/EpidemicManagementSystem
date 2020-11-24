@@ -61,8 +61,8 @@ namespace ELAB_Information
         }
        
 
-    //对数据库进行各种查询的统一语句
-    public static MySqlDataReader sqlSearch(string sql)
+        //对数据库进行各种查询的统一语句
+        public static MySqlDataReader sqlSearch(string sql)
         {
             MySqlConnection conn = new MySqlConnection(Config.connectStr);
             try
@@ -79,6 +79,24 @@ namespace ELAB_Information
                 return reader;
             }
             
+        }
+
+        //数组存储一列数据
+        public static int[] setData(MySqlDataReader reader)
+        {
+            int[] tmp = new int[11];
+            tmp[0] = reader.GetInt32("date");
+            tmp[1] = reader.GetInt32("allDefinite");
+            tmp[2] = reader.GetInt32("newDefinite");
+            tmp[3] = reader.GetInt32("allCure");
+            tmp[4] = reader.GetInt32("newCure");
+            tmp[5] = reader.GetInt32("allDeath");
+            tmp[6] = reader.GetInt32("newDeath");
+            tmp[7] = reader.GetInt32("nowSuspected");
+            tmp[8] = reader.GetInt32("newSuspected");
+            tmp[9] = reader.GetInt32("nowDanger");
+            tmp[10] = reader.GetInt32("newDanger");
+            return tmp;
         }
     }
 
