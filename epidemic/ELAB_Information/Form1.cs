@@ -84,9 +84,14 @@ namespace ELAB_Information
         private void login_Click(object sender, EventArgs e)
         {
             //用户名不能超过12的字符
-            if (textBox1.Text.Length >= 12)
+            if (textBox1.Text.Length >= 12 )
             {
                 MessageBox.Show("用户名不能过长", "错误提示");
+                return;
+            }
+            if (textBox2.Text.Length<6 || textBox2.Text.Length > 16)
+            {
+                MessageBox.Show("密码长度必须为6-16位", "错误提示");
                 return;
             }
             if (sqlSearchUser(textBox1.Text) == 0)
