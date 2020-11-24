@@ -417,5 +417,27 @@ namespace ELAB_Information
             ListviewSort();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string name = cityText.Text;
+            string sqlstr = "select * from cityList where name='" + name + "'";
+            MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader.Read())
+            {
+                string city = reader.GetString("province");
+                listname = city;
+                sqlstr = "select * from " + city;
+                updateView(sqlstr);
+            }
+            else
+            {
+                MessageBox.Show("未找到数据", "错误提示");
+            }
+        }
+
+        private void cityText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

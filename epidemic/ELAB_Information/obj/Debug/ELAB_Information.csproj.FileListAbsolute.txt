@@ -73,6 +73,5 @@ C:\Users\djinni\Desktop\epidemic\ELAB_Information\obj\Debug\ELAB_Information.csp
 C:\Users\djinni\Desktop\epidemic\ELAB_Information\obj\Debug\ELAB_Information.csproj.CopyComplete
 C:\Users\djinni\Desktop\epidemic\ELAB_Information\obj\Debug\ELAB_Information.exe
 C:\Users\djinni\Desktop\epidemic\ELAB_Information\obj\Debug\ELAB_Information.pdb
-C:\Users\djinni\Desktop\epidemic\ELAB_Information\obj\Debug\ELAB_Information.inputforms.resources
 C:\Users\djinni\Desktop\epidemic\ELAB_Information\obj\Debug\ELAB_Information.DataChart.resources
 C:\Users\djinni\Desktop\epidemic\ELAB_Information\obj\Debug\ELAB_Information.inputFormsNew.resources
