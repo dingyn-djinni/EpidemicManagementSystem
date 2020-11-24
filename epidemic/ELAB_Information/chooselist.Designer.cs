@@ -35,9 +35,10 @@
             // 
             // upadte
             // 
-            this.upadte.Location = new System.Drawing.Point(93, 193);
+            this.upadte.Location = new System.Drawing.Point(70, 154);
+            this.upadte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.upadte.Name = "upadte";
-            this.upadte.Size = new System.Drawing.Size(155, 41);
+            this.upadte.Size = new System.Drawing.Size(116, 33);
             this.upadte.TabIndex = 0;
             this.upadte.Text = "更新数据";
             this.upadte.UseVisualStyleBackColor = true;
@@ -45,9 +46,10 @@
             // 
             // search
             // 
-            this.search.Location = new System.Drawing.Point(93, 261);
+            this.search.Location = new System.Drawing.Point(70, 209);
+            this.search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(155, 41);
+            this.search.Size = new System.Drawing.Size(116, 33);
             this.search.TabIndex = 1;
             this.search.Text = "查询数据";
             this.search.UseVisualStyleBackColor = true;
@@ -55,9 +57,10 @@
             // 
             // inputs
             // 
-            this.inputs.Location = new System.Drawing.Point(93, 127);
+            this.inputs.Location = new System.Drawing.Point(70, 102);
+            this.inputs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.inputs.Name = "inputs";
-            this.inputs.Size = new System.Drawing.Size(155, 41);
+            this.inputs.Size = new System.Drawing.Size(116, 33);
             this.inputs.TabIndex = 2;
             this.inputs.Text = "输入数据";
             this.inputs.UseVisualStyleBackColor = true;
@@ -65,14 +68,16 @@
             // 
             // chooselist
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 372);
+            this.ClientSize = new System.Drawing.Size(274, 298);
             this.Controls.Add(this.inputs);
             this.Controls.Add(this.search);
             this.Controls.Add(this.upadte);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "chooselist";
             this.Text = "管理员菜单";
+            this.Load += new System.EventHandler(this.chooselist_Load);
             this.ResumeLayout(false);
 
         }

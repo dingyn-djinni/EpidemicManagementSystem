@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * name：管理员菜单
+ * description：这一页面是管理员的菜单选择页面，提供了输入数据、修改数据和查看数据三个选项
+ * date:2020.11.24
+ * author:Yuning Ding; Zian Wang; Shijie Wang
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +47,11 @@ namespace ELAB_Information
             this.Hide();
             c1.ShowDialog();
             this.Show();
+        }
+
+        private void chooselist_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

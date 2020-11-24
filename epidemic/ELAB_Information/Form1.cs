@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * name：疫情管理系统登陆界面
+ * description：登陆界面，用户可以注册账号并登录，管理员可使用管理员账号登陆
+ * date:2020.11.23
+ * author:Yuning Ding; Xin Zhao
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,13 +31,12 @@ namespace ELAB_Information
         //数据库访问函数,用于寻找用户
         public int sqlSearchUser(string inputId)
         {
-            MySqlConnection conn = new MySqlConnection(Config.connectStr); 
+            
             try
             {
-                conn.Open();//跟数据库建立连接，并打开连接
+                
                 string sql = "select * from userlist where id='" + inputId + "'";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();//执行查询
+                MySqlDataReader reader = Config.sqlSearch(sql);//执行查询
                 try
                 {
                     reader.Read();

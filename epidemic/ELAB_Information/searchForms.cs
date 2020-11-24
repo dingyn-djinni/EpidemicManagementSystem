@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * name：疫情管理系统客户端
+ * description：用户进入管理系统后显示的界面，可以实现多种查询
+ * date:2020.11.24
+ * author:Yuning Ding
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,11 +17,13 @@ using MySql.Data.MySqlClient;
 
 namespace ELAB_Information
 {
+
     public partial class searchForms : Form
     {
-        int[] avers;
-        int flg;
-        string listname = "allData";
+        int[] avers; //用于记录平均值
+        int flg;    //记录输出行数
+        string listname = "allData"; //记录当前表单名字
+        
         public void initView()
         {
             //listView1.Items.Clear();
@@ -45,33 +53,19 @@ namespace ELAB_Information
             listView1.Items.Clear();
             while (reader.Read())
             {
-                int date = reader.GetInt32("date");
-                int allDefinite = reader.GetInt32("allDefinite");
-                int newDefinite = reader.GetInt32("newDefinite");
-                int allCure = reader.GetInt32("allCure");
-                int newCure = reader.GetInt32("newCure");
-                int allDeath = reader.GetInt32("allDeath");
-                int newDeath = reader.GetInt32("newDeath");
-                int nowSuspected = reader.GetInt32("nowSuspected");
-                int newSuspected = reader.GetInt32("newSuspected");
-                int nowDanger = reader.GetInt32("nowDanger");
-                int newDanger = reader.GetInt32("newDanger");
+                int[] data = new int[11];
+                data = setData(reader);
                 Dates dates = new Dates();
-                string datestr = dates.getDateStr(date);
+                string datestr = dates.getDateStr(data[0]);
                 Console.WriteLine(datestr);
                 listView1.Items.Add(datestr);
-                listView1.Items[flg].SubItems.Add(allDefinite.ToString());
-                listView1.Items[flg].SubItems.Add(newDefinite.ToString());
-                listView1.Items[flg].SubItems.Add(allCure.ToString());
-                listView1.Items[flg].SubItems.Add(newCure.ToString());
-                listView1.Items[flg].SubItems.Add(allDeath.ToString());
-                listView1.Items[flg].SubItems.Add(newDeath.ToString());
-                listView1.Items[flg].SubItems.Add(nowSuspected.ToString());
-                listView1.Items[flg].SubItems.Add(newSuspected.ToString());
-                listView1.Items[flg].SubItems.Add(nowDanger.ToString());
-                listView1.Items[flg].SubItems.Add(newDanger.ToString());
+                for(int i = 1; i < 11; i++)
+                {
+                    listView1.Items[flg].SubItems.Add(data[i].ToString());
+                }
                 flg = flg + 1;
             }
+            
             return 1;
         }
 
@@ -93,44 +87,25 @@ namespace ELAB_Information
             listView1.Items.Clear();
             while (reader.Read())
             {
-                int date = reader.GetInt32("date");
-                int allDefinite = reader.GetInt32("allDefinite");
-                int newDefinite = reader.GetInt32("newDefinite");
-                int allCure = reader.GetInt32("allCure");
-                int newCure = reader.GetInt32("newCure");
-                int allDeath = reader.GetInt32("allDeath");
-                int newDeath = reader.GetInt32("newDeath");
-                int nowSuspected = reader.GetInt32("nowSuspected");
-                int newSuspected = reader.GetInt32("newSuspected");
-                int nowDanger = reader.GetInt32("nowDanger");
-                int newDanger = reader.GetInt32("newDanger");
-                total[0] = total[0] + allDefinite;
-                total[1] = total[1] + newDefinite;
-                total[2] = total[2] + allCure;
-                total[3] = total[3] + newCure;
-                total[4] = total[4] + allDeath;
-                total[5] = total[5] + newDeath;
-                total[6] = total[6] + nowSuspected;
-                total[7] = total[7] + newSuspected;
-                total[8] = total[8] + newDanger;
-                total[9] = total[9] + nowDanger;
+                int[] data = new int[11];
+                data = setData(reader);
+                for(int i = 0; i < 10; i++)
+                {
+                    total[i] = total[i] + data[i+1];
+                    
+                }
+                
                 Dates dates = new Dates();
-                string datestr = dates.getDateStr(date);
+                string datestr = dates.getDateStr(data[0]);
                 Console.WriteLine(datestr);
                 listView1.Items.Add(datestr);
-                listView1.Items[flg].SubItems.Add(allDefinite.ToString());
-                listView1.Items[flg].SubItems.Add(newDefinite.ToString());
-                listView1.Items[flg].SubItems.Add(allCure.ToString());
-                listView1.Items[flg].SubItems.Add(newCure.ToString());
-                listView1.Items[flg].SubItems.Add(allDeath.ToString());
-                listView1.Items[flg].SubItems.Add(newDeath.ToString());
-                listView1.Items[flg].SubItems.Add(nowSuspected.ToString());
-                listView1.Items[flg].SubItems.Add(newSuspected.ToString());
-                listView1.Items[flg].SubItems.Add(nowDanger.ToString());
-                listView1.Items[flg].SubItems.Add(newDanger.ToString());
+                for (int i = 1; i < 11; i++)
+                {
+                    listView1.Items[flg].SubItems.Add(data[i].ToString());
+                }
                 flg = flg + 1;
             }
-            avers = new int[10];
+            avers = new int[10]; //avers数组，用于记录平均数
             for(int i = 0; i < 10; i++)
             {
                 avers[i]=total[i]/flg;
@@ -198,14 +173,83 @@ namespace ELAB_Information
             string sqlstr = "select * from " + listname;
             if (updateView(sqlstr) == 1)
             {
-                
-
+  
             }
 
         }
 
+        //数组转储数据
+        private int[] setData( MySqlDataReader reader)
+        {
+            int[] m = new int[11]; 
+            m[0] = reader.GetInt32("date");
+            m[1] = reader.GetInt32("allDefinite");
+            m[2] = reader.GetInt32("newDefinite");
+            m[3] = reader.GetInt32("allCure");
+            m[4] = reader.GetInt32("newCure");
+            m[5] = reader.GetInt32("allDeath");
+            m[6] = reader.GetInt32("newDeath");
+            m[7] = reader.GetInt32("nowSuspected");
+            m[8] = reader.GetInt32("newSuspected");
+            m[9] = reader.GetInt32("nowDanger");
+            m[10] = reader.GetInt32("newDanger");
+            return m;
+        }
+        //点击查看拐点信息（写到这里才想起来C#有list，之前一直都在郁闷为什么C#没有vector)
         private void keyPoint_Click(object sender, EventArgs e)
         {
+            string sqlstr = "select * from allData";
+            MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            int check1 = 0;
+            int check2 = 0;
+            int tmp = 0;
+            int[] maybeData = new int[11];
+            listView1.Items.Clear();
+            flg = 0;
+            while (reader.Read())
+            {
+                if (reader.GetInt32("newDefinite") > tmp)
+                {
+                    check1 = check1 + 1;
+                    if (check1 >= 5)
+                    {
+                        maybeData=setData(reader);
+                    }
+                }
+                else if(reader.GetInt32("newDefinite") == tmp)
+                {
+
+                }
+                else
+                {
+                    if (check1 >=5)
+                    {
+                        
+                        check2 = check2 + 1;
+                        check1 = 5;
+                    }
+                    else
+                    {
+                        check1 = 0;
+                        check2 = 0;
+                    }
+                }
+                tmp=reader.GetInt32("newDefinite");
+                if (check1 >= 5 && check2 >= 5)
+                {
+                    Console.WriteLine(maybeData[0]);
+                    listView1.Items.Add(maybeData[0].ToString());
+                    for (int i = 0; i < 11; i++)
+                    {
+                        listView1.Items[flg].SubItems.Add(maybeData[i].ToString());
+                    }
+                    flg = flg + 1;
+                    check1 = 0;
+                    check2 = 0;
+                }
+            }
+            
+
 
         }
 
@@ -245,7 +289,8 @@ namespace ELAB_Information
                 
                 if (days2 - days1 > 0)
                 {
-                    string sqlstr= "select* from allData where date >= '" + days1.ToString() + "'"+"&"+"date <= '"+ days2.ToString()+"'";
+                    string sqlstr= "select* from allData where date >= " + days1.ToString() +"&&"+"date <= "+ days2.ToString();
+                    Console.WriteLine(sqlstr);
                     if (updateViewForAver(sqlstr) == 1)
                     {
                         listView1.Items.Add("平均数据");
@@ -298,5 +343,74 @@ namespace ELAB_Information
         {
 
         }
+
+        // 图表显示切换
+        private void viewmode_Click(object sender, EventArgs e)
+        {
+            DataChart c1 = new DataChart();
+            c1.ShowDialog();
+        }
+
+        //列表排序
+        private void ListviewSort()
+        {
+            for(int i = 0; i < flg; i++)
+            {
+                int max = 0;
+                int idx = 0;
+                for(int j = 0; j < flg-i; j++)
+                {
+                    int tmp = int.Parse(listView1.Items[j].SubItems[1].Text);
+                    if (tmp > max)
+                    {
+                        max = tmp;
+                        idx = j;
+                    }
+                }
+                listView1.Items.Add(listView1.Items[idx].SubItems[0].Text);
+                for(int p = 0; p < 10; p++)
+                {
+                    listView1.Items[flg].SubItems.Add(listView1.Items[idx].SubItems[p+1].Text);
+                }
+                listView1.Items[idx].Remove();
+                
+            }
+        }
+        // 按省份进行排序
+        private void sort_Click(object sender, EventArgs e)
+        {
+            List<string[]> provinceList = new List<string[]>();
+            string sqlstr = "select * from provinceList";
+            MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            while (reader.Read())
+            {
+                string[] provinceInfo = new string[2];
+                provinceInfo[0] = reader.GetString("province");
+                provinceInfo[1] = reader.GetString("name");
+                provinceList.Add(provinceInfo);
+            }
+            listView1.Items.Clear();
+            flg = 0;
+            foreach (string[] provinceInfo in provinceList)
+            {
+                sqlstr = "select * from "+provinceInfo[0];
+                reader = Config.sqlSearch(sqlstr);
+                int[] provinceData = new int[11];
+                while (reader.Read())
+                {
+                    provinceData = setData(reader);
+                }
+                listView1.Items.Add(provinceInfo[1].ToString());
+                for (int i = 1; i < 11; i++)
+                {
+                    listView1.Items[flg].SubItems.Add(provinceData[i].ToString());
+                }
+                
+                flg = flg + 1;
+                
+            }
+            ListviewSort();
+        }
+
     }
 }

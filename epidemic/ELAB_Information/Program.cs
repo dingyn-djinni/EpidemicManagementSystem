@@ -1,7 +1,9 @@
 ﻿/*
  * project: dlut epidemic management system v0.1
+ * description：一个简单的，基于C#的小型疫情信息管理系统
  * date: 2020.11.23
- * author:Yuning Ding; Zian Wang; Xin Zhao; Shijie Wang
+ * author:team 0cal(Yuning Ding; Zian Wang; Xin Zhao; Shijie Wang)
+ * developer:Yuning Ding; Zian Wang; Xin Zhao; Shijie Wang
  */
 using System;
 using System.Collections.Generic;
@@ -31,8 +33,8 @@ namespace ELAB_Information
     {
         public static int level;
         public static string id;
-        //数据库连接语句，方便修改，（极为不安全,之后会改为调用php交互数据库，也会对关键代码做混淆）
-        public const string connectStr="server=140.143.54.132;port=3306;database=epidemic;user=root;password=6a406dee537e603d;";
+        //数据库连接语句，方便修改，（极为不安全,这句话本身应该做加密，普通用户应该使用只读数据库账号连接，对于管理员用户考虑输入数据库密码也不是不可以）
+        private const string connectStr="server=140.143.54.132;port=3306;database=epidemic;user=root;password=6a406dee537e603d;";
         
         //对数据库进行各种修改的统一语句
         public static int sqlExcuteChange(string sql)
@@ -57,9 +59,10 @@ namespace ELAB_Information
                 conn.Close();
             }
         }
+       
 
-        //对数据库进行各种查询的统一语句
-        public static MySqlDataReader sqlSearch(string sql)
+    //对数据库进行各种查询的统一语句
+    public static MySqlDataReader sqlSearch(string sql)
         {
             MySqlConnection conn = new MySqlConnection(Config.connectStr);
             try
@@ -78,6 +81,7 @@ namespace ELAB_Information
             
         }
     }
+
 
     //日期处理函数
     public class Dates
