@@ -40,6 +40,11 @@ namespace ELAB_Information
             }
             int[] inputdata;
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader == null)
+            {
+                MessageBox.Show("数据错误", "错误提示");
+                return;
+            }
             if (reader.Read())
             {
                 province = reader.GetString("province");
@@ -47,7 +52,12 @@ namespace ELAB_Information
                 int date = int.Parse(textBox1.Text);
                 sqlstr = "select* from " + city+" where date="+(date-1).ToString();
                 reader = Config.sqlSearch(sqlstr);
-                if(reader.Read())
+                if (reader == null)
+                {
+                    MessageBox.Show("数据错误", "错误提示");
+                    return;
+                }
+                if (reader.Read())
                 {
                     datalist = Config.setData(reader);
                 }
@@ -117,6 +127,11 @@ namespace ELAB_Information
             string province; //省份
             string city;  //城市
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader == null)
+            {
+                MessageBox.Show("数据错误", "错误提示");
+                return;
+            }
             if (reader.Read())
             {
                 province = reader.GetString("province");
@@ -145,6 +160,11 @@ namespace ELAB_Information
             int[] datalist = new int[11];
             string sqlstr = "select* from " + province + " where date>=" + basedate.ToString();
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader == null)
+            {
+                MessageBox.Show("数据错误", "错误提示");
+                return;
+            }
             //如果可以搜索到当天，需要更新数据
             if (reader.Read())
             {
@@ -245,6 +265,11 @@ namespace ELAB_Information
             int[] datalist = new int[11];
             string sqlstr = "select* from " + "allData" + " where date>=" + basedate.ToString();
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader == null)
+            {
+                MessageBox.Show("数据错误", "错误提示");
+                return;
+            }
             //如果可以搜索到当天，需要更新数据
             if (reader.Read())
             {
@@ -298,6 +323,11 @@ namespace ELAB_Information
             {
                 sqlstr = "select* from " + "allData" + " where date=" + (basedate - 1).ToString();
                 reader = Config.sqlSearch(sqlstr);
+                if (reader == null)
+                {
+                    MessageBox.Show("数据错误", "错误提示");
+                    return;
+                }
                 //有初始数据时
                 if (reader.Read())
                 {

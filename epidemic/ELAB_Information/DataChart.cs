@@ -28,6 +28,11 @@ namespace ELAB_Information
             InitializeComponent();
             string sqlstr = "select * from allData";
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader == null)
+            {
+                MessageBox.Show("未正确获取数据", "错误提示");
+                this.Close();
+            }
             flg = 0;
             while (reader.Read())
             {
@@ -102,7 +107,7 @@ namespace ELAB_Information
             chartArea.AxisX.Minimum = 0;
             chartArea.AxisX.Maximum = 14;
             chartArea.AxisY.Minimum = 0;
-            chartArea.AxisY.Maximum = 20;
+            chartArea.AxisY.Maximum = 25;
         }
 
         private void DataChart_Load(object sender, EventArgs e)
