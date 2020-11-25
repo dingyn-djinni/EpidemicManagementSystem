@@ -21,9 +21,11 @@ namespace ELAB_Information
     {
         int basedate; //基准日期
         int[] changedatalist;
+        
         public inputFormsNew()
         {
             InitializeComponent();
+            textBox1.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -125,7 +127,9 @@ namespace ELAB_Information
                 {
                     date = reader.GetInt32("date");
                 }
+                Dates dates = new Dates();
                 textBox1.Text = (date+1).ToString();
+                nextDate.Text = dates.getDateStr(date + 1);
 
             }
             else

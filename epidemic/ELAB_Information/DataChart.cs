@@ -90,7 +90,7 @@ namespace ELAB_Information
                 {
                     for(int j = 0; j < 5; j++)
                     {
-                        serieslist[0].Points.AddXY(x, v[j]);
+                        serieslist[j].Points.AddXY(x, v[j]);
                     }
                     
                     x++;

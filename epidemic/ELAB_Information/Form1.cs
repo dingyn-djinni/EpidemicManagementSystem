@@ -37,6 +37,10 @@ namespace ELAB_Information
                 
                 string sql = "select * from userlist where id='" + inputId + "'";
                 MySqlDataReader reader = Config.sqlSearch(sql);//执行查询
+                if (reader == null)
+                {
+                    return 0;
+                }
                 try
                 {
                     reader.Read();
