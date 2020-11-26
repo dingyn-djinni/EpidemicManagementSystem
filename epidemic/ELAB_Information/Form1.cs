@@ -123,7 +123,6 @@ namespace ELAB_Information
             {
                 Config.id = textBox1.Text;
                 MessageBox.Show("欢迎访问", "登录提示");
-                Config.level =0;
                 searchForms c1 = new searchForms();
                 //Hide函数用于隐藏窗体，但不会真正退出
                 this.Hide();
@@ -167,6 +166,11 @@ namespace ELAB_Information
             this.Hide();
             c1.ShowDialog();
             this.Show();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

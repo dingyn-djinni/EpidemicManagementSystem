@@ -53,6 +53,12 @@ namespace ELAB_Information
             }
             string sqlstr="select * from userlist where id='" + username.Text + "'";
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader == null)
+            {
+                MessageBox.Show("数据错误", "错误提示");
+                return;
+            }
+
             if (reader.Read())
             {
                 MessageBox.Show("用户名存在", "错误提示");
@@ -98,6 +104,11 @@ namespace ELAB_Information
         private void backMenu_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

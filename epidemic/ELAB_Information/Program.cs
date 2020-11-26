@@ -1,9 +1,12 @@
 ﻿/*
- * project: dlut epidemic management system v0.1
- * description：一个简单的，基于C#的小型疫情信息管理系统
- * date: 2020.11.23
- * author:team 0cal(Yuning Ding; Zian Wang; Xin Zhao; Shijie Wang)
- * developer:Yuning Ding; Zian Wang; Xin Zhao; Shijie Wang
+ * project: dlut epidemic management system v0.4
+ * description: 一个简单的，基于C#的小型疫情信息管理系统
+ * date: 2020.11.26
+ * author: Team 0cal(Yuning Ding; Zian Wang; Xin Zhao; Shijie Wang)
+ * developer: Yuning Ding; Zian Wang; Xin Zhao; Shijie Wang
+ * art designer: Zian Wang; Xin Zhao; Shijie Wang
+ * tester: Yuning Ding
+ * last update: 增加了年份
  */
 using System;
 using System.Collections.Generic;
@@ -124,6 +127,7 @@ namespace ELAB_Information
             daysInMonth[11] = 31;
         }
 
+        //将日期数字转换为字符串
         public string getDateStr(int date)
         {
             for(int i = 0; i < 12; i++)
@@ -141,6 +145,43 @@ namespace ELAB_Information
             return null;
         }
 
+        //将日期数字转换成字符串（带年份）
+        public string getDateStrNew(int date)
+        {
+            int year = 2020;
+            int yearDays = 366;
+            
+            while (date-yearDays > 0)
+            {
+                date = date - yearDays;
+                year = year + 1;
+                if (year % 4 == 0 && year % 100 != 0)
+                {
+                    daysInMonth[1] = 29;
+                    yearDays = 366;
+                }
+                else
+                {
+                    daysInMonth[1] = 28;
+                    yearDays = 365;
+                }
+            }
+            for (int i = 0; i < 12; i++)
+            {
+                if (date - daysInMonth[i] >= 0)
+                {
+                    date = date - daysInMonth[i];
+                }
+                else
+                {
+                    string tmp = year.ToString()+"年"+(i + 1).ToString() + "月" + date.ToString() + "日";
+                    return tmp;
+                }
+            }
+            return null;
+        }
+
+        //将月和日转换成数字
         public int getStrDate(int mon,int day)
         {
             int i = 0;
@@ -150,6 +191,60 @@ namespace ELAB_Information
                 days = days + daysInMonth[i];
             }
             if (daysInMonth[i] >= day)
+            {
+                days = days + day;
+                return days;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        // 将年月日转换为字符串,从2020年开始计算
+        public int getStrDateNew(int year,int mon,int day)
+        {
+            int days = 0;
+            int i = 2020;
+            if (year < 2020 )
+            {
+                return 0;
+            }
+            if(mon>12 || mon < 1)
+            {
+                return 0;
+            }
+            if (day < 1)
+            {
+                return 0;
+            }
+            for(i = 2020; i < year; i++)
+            {
+                if(i%4==0 && i % 100 != 0)
+                {
+                    daysInMonth[1] = 29;
+                    days = days + 366;
+                }
+                else
+                {
+                    daysInMonth[1] = 28;
+                    days = days + 365;
+                }
+                
+            }
+            if (i % 4 == 0 && i % 100 != 0)
+            {
+                daysInMonth[1] = 29;
+            }
+            else
+            {
+                daysInMonth[1] = 28;
+            }
+            for (int j = 0; j < mon - 1; j++)
+            {
+                days = days + daysInMonth[j];
+            }
+            if (daysInMonth[mon-1] >= day)
             {
                 days = days + day;
                 return days;

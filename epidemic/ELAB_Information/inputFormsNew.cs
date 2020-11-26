@@ -45,6 +45,7 @@ namespace ELAB_Information
                 MessageBox.Show("数据错误", "错误提示");
                 return;
             }
+
             if (reader.Read())
             {
                 province = reader.GetString("province");
@@ -57,6 +58,7 @@ namespace ELAB_Information
                     MessageBox.Show("数据错误", "错误提示");
                     return;
                 }
+
                 if (reader.Read())
                 {
                     datalist = Config.setData(reader);
@@ -98,12 +100,15 @@ namespace ELAB_Information
                 if (Config.sqlExcuteChange(sqlstr) == 1)
                 {  
                     textBox1.Text = (inputdata[0] + 1).ToString();
+                    Dates dates = new Dates();
+                    nextDate.Text = dates.getDateStrNew((inputdata[0] + 1));
                     basedate = inputdata[0];
                     changedatalist = inputdata;
                     //这个地方出错需要回滚，需要加强鲁棒性
                     updateProvince(province,basedate,changedatalist);
                     updateAll(basedate, changedatalist);
                     MessageBox.Show("添加成功", "提示");
+
                     return;
                 }
                 else
@@ -132,19 +137,26 @@ namespace ELAB_Information
                 MessageBox.Show("数据错误", "错误提示");
                 return;
             }
+
             if (reader.Read())
             {
                 province = reader.GetString("province");
                 city= reader.GetString("city");
                 sqlstr = "select* from " + city;
                 reader = Config.sqlSearch(sqlstr);
+                if (reader == null)
+                {
+                    MessageBox.Show("数据错误", "错误提示");
+                    return;
+                }
+
                 while (reader.Read())
                 {
                     date = reader.GetInt32("date");
                 }
                 Dates dates = new Dates();
                 textBox1.Text = (date+1).ToString();
-                nextDate.Text = dates.getDateStr(date + 1);
+                nextDate.Text = dates.getDateStrNew(date + 1);
 
             }
             else
@@ -165,6 +177,7 @@ namespace ELAB_Information
                 MessageBox.Show("数据错误", "错误提示");
                 return;
             }
+
             //如果可以搜索到当天，需要更新数据
             if (reader.Read())
             {
@@ -218,6 +231,12 @@ namespace ELAB_Information
             {
                 sqlstr = "select* from " + province + " where date=" + (basedate-1).ToString();
                 reader = Config.sqlSearch(sqlstr);
+                if (reader == null)
+                {
+                    MessageBox.Show("数据错误", "错误提示");
+                    return;
+                }
+
                 //有初始数据时
                 if (reader.Read())
                 {
@@ -270,6 +289,7 @@ namespace ELAB_Information
                 MessageBox.Show("数据错误", "错误提示");
                 return;
             }
+
             //如果可以搜索到当天，需要更新数据
             if (reader.Read())
             {
@@ -328,6 +348,7 @@ namespace ELAB_Information
                     MessageBox.Show("数据错误", "错误提示");
                     return;
                 }
+
                 //有初始数据时
                 if (reader.Read())
                 {
@@ -389,6 +410,16 @@ namespace ELAB_Information
         }
 
         private void newSuspected_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nextDate_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -17,8 +17,10 @@ using MySql.Data.MySqlClient;
 
 namespace ELAB_Information
 {
+    
     public partial class update : Form
     {
+        int check = 1;//标记是否产生输入警告
         int[] preDatalist; //用于记录先前数据
         int[] newDatalist; //记录输入数据,从左到右为0-4
         int[] changeDatalist; //记录变化数据
@@ -28,6 +30,18 @@ namespace ELAB_Information
         public update()
         {
             InitializeComponent();
+            string sqlstr = "select* from cityList";
+            MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader == null)
+            {
+                MessageBox.Show("请检查数据库连接", "错误提示");
+                return;
+            }
+            while (reader.Read())
+            {
+                comboBox1.Items.Add(reader.GetString("name"));
+            }
+
         }
 
         //获取数据库现有数据
@@ -37,10 +51,17 @@ namespace ELAB_Information
             {
                 int m = int.Parse(month.Text); //月
                 int d = int.Parse(day.Text);  //日 
+                int y = int.Parse(yearsText.Text); //年
                 Dates dates = new Dates();
-                int searchDate = dates.getStrDate(m, d);
+                int searchDate = dates.getStrDateNew(y,m, d);
+                Console.WriteLine(searchDate);
+                if (searchDate == 0)
+                {
+                    MessageBox.Show("请检查日期输入", "错误提示");
+                    return 0;
+                }
                 basedate = searchDate;
-                string name = city.Text;
+                string name = comboBox1.SelectedItem.ToString();
                 string sqlstr = "select* from cityList where name='" + name + "'";
                 MySqlDataReader reader = Config.sqlSearch(sqlstr);
                 if (reader == null)
@@ -94,6 +115,14 @@ namespace ELAB_Information
                     newDatalist[2] = int.Parse(Death.Text);
                     newDatalist[3] = int.Parse(Suspected.Text);
                     newDatalist[4] = int.Parse(Danger.Text);
+                    for(int i = 0; i < 3; i++)
+                    {
+                        if (newDatalist[i] < 0)
+                        {
+                            MessageBox.Show("数据不合法", "错误提示");
+                            return ;
+                        }
+                    }
                     for(int i = 0; i < 5; i++)
                     {
                         changeDatalist[i] = newDatalist[i] - preDatalist[2 * i + 2];
@@ -107,7 +136,16 @@ namespace ELAB_Information
                 updateData(cityWord);
                 updateData(provinceWord);
                 updateData("allData");
-                MessageBox.Show("修改成功", "提示");
+                if (check == 1)
+                {
+                    MessageBox.Show("修改成功", "提示");
+                }
+                else
+                {
+                    check = 0;
+                    MessageBox.Show("修改成功,但是可能有错误数据(累计数据产生负数）,请检查", "提示");
+                }
+                
                 return;
 
             }
@@ -136,6 +174,11 @@ namespace ELAB_Information
                 for(int i = 1; i < 11; i++)
                 {
                     thisDatalist[i] = thisDatalist[i] + changeDatalist[(i-1) / 2];
+
+                }
+                if(thisDatalist[7]<0 || thisDatalist[9] < 0)
+                {
+                    check = 0;
                 }
                 sqlstr = "update " + listName + " set ";
                 sqlstr = sqlstr + "allDefinite = " + thisDatalist[1] + ",";
@@ -149,7 +192,6 @@ namespace ELAB_Information
                 sqlstr = sqlstr + "nowDanger  = " + thisDatalist[9] + ",";
                 sqlstr = sqlstr + "newDanger = " + thisDatalist[10];
                 sqlstr = sqlstr + " where date=" + thisDatalist[0];
-                Console.WriteLine(sqlstr);
                 Config.sqlExcuteChange(sqlstr);
             }
             while (reader.Read())
@@ -158,6 +200,11 @@ namespace ELAB_Information
                 for(int i = 0; i < 5; i++)
                 {
                     thisDatalist[i * 2 + 1] = thisDatalist[i * 2 + 1] + changeDatalist[i];
+                    
+                }
+                if(thisDatalist[7]<0 || thisDatalist[9] < 0)
+                {
+                    check = 0;
                 }
                 sqlstr = "update " + listName + " set ";
                 sqlstr = sqlstr + "allDefinite = " + thisDatalist[1] + ",";
@@ -166,7 +213,6 @@ namespace ELAB_Information
                 sqlstr = sqlstr + "nowSuspected = " + thisDatalist[7] + ",";
                 sqlstr = sqlstr + "nowDanger  = " + thisDatalist[9];
                 sqlstr = sqlstr + " where date=" + thisDatalist[0];
-                Console.WriteLine(sqlstr);
                 Config.sqlExcuteChange(sqlstr);
             }
         }
@@ -231,6 +277,21 @@ namespace ELAB_Information
         }
 
         private void Danger_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

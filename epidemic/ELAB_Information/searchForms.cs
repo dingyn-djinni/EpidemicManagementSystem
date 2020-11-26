@@ -56,7 +56,7 @@ namespace ELAB_Information
                 int[] data = new int[11];
                 data = setData(reader);
                 Dates dates = new Dates();
-                string datestr = dates.getDateStr(data[0]);
+                string datestr = dates.getDateStrNew(data[0]);
                 Console.WriteLine(datestr);
                 listView1.Items.Add(datestr);
                 for(int i = 1; i < 11; i++)
@@ -78,6 +78,7 @@ namespace ELAB_Information
                 total[i] = 0;
             }
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
+
             flg = 0;
             if (reader == null)
             {
@@ -96,7 +97,7 @@ namespace ELAB_Information
                 }
                 
                 Dates dates = new Dates();
-                string datestr = dates.getDateStr(data[0]);
+                string datestr = dates.getDateStrNew(data[0]);
                 Console.WriteLine(datestr);
                 listView1.Items.Add(datestr);
                 for (int i = 1; i < 11; i++)
@@ -120,6 +121,10 @@ namespace ELAB_Information
             initView();
             string sqlstr = "select * from "+listname;
             updateView(sqlstr);
+            if (Config.level == 1)
+            {
+                button3.Text = "返回";
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,6 +158,12 @@ namespace ELAB_Information
             string name = textBox1.Text;
             string sqlstr = "select * from provinceList where name='" + name + "'";
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader == null)
+            {
+                MessageBox.Show("数据错误", "错误提示");
+                return;
+            }
+
             if (reader.Read())
             {
                 string province = reader.GetString("province");
@@ -200,6 +211,12 @@ namespace ELAB_Information
         {
             string sqlstr = "select * from allData";
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader == null)
+            {
+                MessageBox.Show("数据错误", "错误提示");
+                return;
+            }
+
             int check1 = 0;
             int check2 = 0;
             int tmp = 0;
@@ -270,25 +287,25 @@ namespace ELAB_Information
             int m2; //终止月份
             int d1; //起始日期
             int d2; //终止日期
+            int y1; //起始年份
+            int y2; //终止年份
             try
             {
                 m1 = int.Parse(month1.Text);
                 m2 = int.Parse(month2.Text);
                 d1 = int.Parse(day1.Text);
                 d2 = int.Parse(day2.Text);
-                if(m1<0 || m2<0 || d1<0 || d2 < 0)
-                {
-                    MessageBox.Show("数据不合法", "错误提示");
-                    return;
-                }
+                y1 = int.Parse(yearText1.Text);
+                y2 = int.Parse(yearText2.Text);
+
                 Dates dates = new Dates();
-                int days1=dates.getStrDate(m1, d1);
-                int days2 = dates.getStrDate(m2, d2);
+                int days1=dates.getStrDateNew(y1,m1, d1);
+                int days2 = dates.getStrDateNew(y2,m2, d2);
 
                 //判断日期是否合理
                 if(days1==0 || days2 == 0)
                 {
-                    MessageBox.Show("数据错误", "错误提示");
+                    MessageBox.Show("日期非法", "错误提示");
                     return;
                 }
                 
@@ -387,6 +404,12 @@ namespace ELAB_Information
             List<string[]> provinceList = new List<string[]>();
             string sqlstr = "select * from provinceList";
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader == null)
+            {
+                MessageBox.Show("数据错误", "错误提示");
+                return;
+            }
+
             while (reader.Read())
             {
                 string[] provinceInfo = new string[2];
@@ -400,6 +423,12 @@ namespace ELAB_Information
             {
                 sqlstr = "select * from "+provinceInfo[0];
                 reader = Config.sqlSearch(sqlstr);
+                if (reader == null)
+                {
+                    MessageBox.Show("数据错误", "错误提示");
+                    return;
+                }
+
                 int[] provinceData = new int[11];
                 while (reader.Read())
                 {
@@ -417,11 +446,18 @@ namespace ELAB_Information
             ListviewSort();
         }
 
+        // 按照城市名称查询
         private void button2_Click(object sender, EventArgs e)
         {
             string name = cityText.Text;
             string sqlstr = "select * from cityList where name='" + name + "'";
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
+            if (reader == null)
+            {
+                MessageBox.Show("数据错误", "错误提示");
+                return;
+            }
+
             if (reader.Read())
             {
                 string city = reader.GetString("province");
@@ -438,6 +474,12 @@ namespace ELAB_Information
         private void cityText_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        //点击后，管理员返回菜单，用户退出
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

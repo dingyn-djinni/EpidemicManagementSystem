@@ -28,11 +28,6 @@ namespace ELAB_Information
             InitializeComponent();
             string sqlstr = "select * from allData";
             MySqlDataReader reader = Config.sqlSearch(sqlstr);
-            if (reader == null)
-            {
-                MessageBox.Show("未正确获取数据", "错误提示");
-                this.Close();
-            }
             flg = 0;
             while (reader.Read())
             {
@@ -45,15 +40,16 @@ namespace ELAB_Information
                 datalist.Add(dataArray);
                 flg = flg + 1;
             }
-            chartInit();
+            chartInit(SeriesChartType.FastLine);
         }
 
-        private Series InitSeries(int i,string LegendText,Color color)
+        private Series InitSeries(int i,string LegendText,Color color, SeriesChartType line)
         {
             // 设置曲线的样式
             Series series = chart1.Series[i];
             // 画样条曲线（Spline）
-            series.ChartType = SeriesChartType.FastLine;
+            series.ChartType = line;
+            
             // 线宽2个像素
             series.BorderWidth = 2;
             // 线的颜色：红色
@@ -65,15 +61,15 @@ namespace ELAB_Information
         }
 
         //初始化图表，取最后十五天的数据
-        private void chartInit()
+        private void chartInit(SeriesChartType line)
         {
 
             Series[] serieslist = new Series[5];
-            serieslist[0] = InitSeries(0, "累计确诊", Color.Red);
-            serieslist[1] = InitSeries(1, "累计治愈", Color.Green);
-            serieslist[2] = InitSeries(2, "累计死亡", Color.Black);
-            serieslist[3] = InitSeries(3, "现有疑似", Color.Yellow);
-            serieslist[4] = InitSeries(4, "现有重症", Color.Gray);
+            serieslist[0] = InitSeries(0, "累计确诊", Color.Red, line);
+            serieslist[1] = InitSeries(1, "累计治愈", Color.Green, line);
+            serieslist[2] = InitSeries(2, "累计死亡", Color.Black, line);
+            serieslist[3] = InitSeries(3, "现有疑似", Color.Yellow, line);
+            serieslist[4] = InitSeries(4, "现有重症", Color.Gray, line);
 
             // 在chart中显示数据
             if (flg >= 15)
@@ -101,13 +97,25 @@ namespace ELAB_Information
                     x++;
                 }
             }
-
+            //取数据最大值，用于设置图表上限
+            int max = 0;
+            foreach(int[] i in datalist)
+            {
+                for(int j = 0; j < 5; j++)
+                {
+                    if (i[j] > max)
+                    {
+                        max = i[j];
+                    }
+                }
+            }
             // 设置显示范围
             ChartArea chartArea = chart1.ChartAreas[0];
             chartArea.AxisX.Minimum = 0;
             chartArea.AxisX.Maximum = 14;
             chartArea.AxisY.Minimum = 0;
-            chartArea.AxisY.Maximum = 25;
+            int maxX = (int)(max * 1.25 / 100);
+            chartArea.AxisY.Maximum = (maxX+1)*100;
         }
 
         private void DataChart_Load(object sender, EventArgs e)
@@ -118,6 +126,24 @@ namespace ELAB_Information
         private void chart1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void mode6_Click(object sender, EventArgs e)
+        {
+            foreach(var series in chart1.Series)
+            {
+                series.Points.Clear();
+            }
+            chartInit(SeriesChartType.FastLine);
+        }
+
+        private void mode4_Click(object sender, EventArgs e)
+        {
+            foreach (var series in chart1.Series)
+            {
+                series.Points.Clear();
+            }
+            chartInit(SeriesChartType.Bar);
         }
     }
 }

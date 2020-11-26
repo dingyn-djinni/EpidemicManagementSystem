@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Button login;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -38,16 +39,23 @@
             this.quit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.register = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             login = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // login
             // 
             login.BackColor = System.Drawing.SystemColors.Highlight;
             login.ForeColor = System.Drawing.SystemColors.HighlightText;
-            login.Location = new System.Drawing.Point(229, 187);
+            login.Location = new System.Drawing.Point(133, 188);
             login.Name = "login";
-            login.Size = new System.Drawing.Size(121, 33);
+            login.Size = new System.Drawing.Size(119, 33);
             login.TabIndex = 2;
             login.Text = " 登录";
             login.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -58,7 +66,7 @@
             // 
             this.textBox1.Cursor = System.Windows.Forms.Cursors.PanWest;
             this.textBox1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(117, 102);
+            this.textBox1.Location = new System.Drawing.Point(117, 113);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(233, 23);
             this.textBox1.TabIndex = 0;
@@ -77,7 +85,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label1.Location = new System.Drawing.Point(56, 107);
+            this.label1.Location = new System.Drawing.Point(70, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 3;
@@ -87,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(68, 160);
+            this.label3.Location = new System.Drawing.Point(70, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 5;
@@ -97,18 +105,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(266, 240);
+            this.label2.Location = new System.Drawing.Point(244, 224);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(125, 12);
             this.label2.TabIndex = 6;
-            this.label2.Text = "ELAB软件组";
+            this.label2.Text = "develop by Team 0cal";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // quit
             // 
-            this.quit.Location = new System.Drawing.Point(10, 188);
+            this.quit.Location = new System.Drawing.Point(258, 187);
             this.quit.Name = "quit";
-            this.quit.Size = new System.Drawing.Size(106, 32);
+            this.quit.Size = new System.Drawing.Size(92, 32);
             this.quit.TabIndex = 7;
             this.quit.Text = "退出";
             this.quit.UseVisualStyleBackColor = true;
@@ -126,7 +134,7 @@
             // 
             // register
             // 
-            this.register.Location = new System.Drawing.Point(131, 188);
+            this.register.Location = new System.Drawing.Point(37, 189);
             this.register.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.register.Name = "register";
             this.register.Size = new System.Drawing.Size(92, 32);
@@ -135,11 +143,55 @@
             this.register.UseVisualStyleBackColor = true;
             this.register.Click += new System.EventHandler(this.register_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(37, 113);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(37, 157);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(27, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(21, 18);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(355, 75);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 17;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(292, 245);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "version: 0.4";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 264);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.register);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.quit);
@@ -150,8 +202,12 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "疫情管理系统登陆界面";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +224,10 @@
         private System.Windows.Forms.Button quit;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button register;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label4;
     }
 }
 
