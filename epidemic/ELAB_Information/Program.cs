@@ -8,6 +8,7 @@
  * tester: Yuning Ding
  * last update: 增加了年份
  */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,8 @@ namespace ELAB_Information
             Application.Run(new Form1());
         }
     }
+
+    // config类中记录了数据库交互中会用到的插入、修改、读取数据表中信息，数组转储读取数据函数，记录了登录者的等级信息。
     public class Config
     {
         public static int level;
@@ -104,7 +107,7 @@ namespace ELAB_Information
     }
 
 
-    //日期处理函数
+    //日期处理类Dates：存储了一整套日期记录函数
     public class Dates
     {
         private int[] daysInMonth;
@@ -150,7 +153,7 @@ namespace ELAB_Information
         {
             int year = 2020;
             int yearDays = 366;
-            
+            daysInMonth[1] = 29;
             while (date-yearDays > 0)
             {
                 date = date - yearDays;
@@ -256,7 +259,7 @@ namespace ELAB_Information
         }
     }
 
-    //md5函数类
+    //md5函数类，对传入数据库的密码进行加密处理
     public partial class MD5Helper
     {
         //md5加密
