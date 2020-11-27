@@ -14,11 +14,13 @@
 
 普通用户使用前需注册，注册后可以获得普通用户账号登录，管理员使用管理员账号登陆
 
+[![DD7M7T.png](https://s3.ax1x.com/2020/11/27/DD7M7T.png)](https://imgchr.com/i/DD7M7T)
+
 ### 用户客户端
 
 用户客户端界面如图所示
 
-![image-20201127095646970](C:\Users\djinni\AppData\Roaming\Typora\typora-user-images\image-20201127095646970.png)
+[![DD7D4e.md.png](https://s3.ax1x.com/2020/11/27/DD7D4e.md.png)](https://imgchr.com/i/DD7D4e)
 
 #### 全国数据
 
@@ -27,6 +29,8 @@
 #### 图表显示
 
 以图表的模式显示全国数据，我们提供了条形图和折线图两个模式
+
+[![DD74US.md.png](https://s3.ax1x.com/2020/11/27/DD74US.md.png)](https://imgchr.com/i/DD74US)
 
 ### 省份排序
 
@@ -52,7 +56,7 @@
 
 管理员端登陆后，会看见一个菜单，如图
 
-![image-20201127101243658](C:\Users\djinni\AppData\Roaming\Typora\typora-user-images\image-20201127101243658.png)
+[![DDHQKI.png](https://s3.ax1x.com/2020/11/27/DDHQKI.png)](https://imgchr.com/i/DDHQKI)
 
 #### 输入数据
 
