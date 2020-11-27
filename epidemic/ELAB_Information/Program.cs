@@ -1,12 +1,11 @@
 ﻿/*
- * project: dlut epidemic management system v0.4
+ * project: dlut epidemic management system v1.0
  * description: 一个简单的，基于C#的小型疫情信息管理系统
  * date: 2020.11.26
  * author: Team 0cal(Yuning Ding; Zian Wang; Xin Zhao; Shijie Wang)
  * developer: Yuning Ding; Zian Wang; Xin Zhao; Shijie Wang
  * art designer: Zian Wang; Xin Zhao; Shijie Wang
  * tester: Yuning Ding
- * last update: 增加了年份
  */
 
 using System;

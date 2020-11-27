@@ -35,9 +35,9 @@ namespace ELAB_Information
             listView1.Columns.Add("累计死亡");
             listView1.Columns.Add("新增死亡");
             listView1.Columns.Add("现有疑似");
-            listView1.Columns.Add("累计疑似");
+            listView1.Columns.Add("疑似变化");
             listView1.Columns.Add("现有危重");
-            listView1.Columns.Add("累计危重");
+            listView1.Columns.Add("危重变化");
             listView1.View = System.Windows.Forms.View.Details;
         }
 
@@ -255,8 +255,10 @@ namespace ELAB_Information
                 if (check1 >= 5 && check2 >= 5)
                 {
                     Console.WriteLine(maybeData[0]);
-                    listView1.Items.Add(maybeData[0].ToString());
-                    for (int i = 0; i < 11; i++)
+                    Dates date = new Dates();
+                    string datastr = date.getDateStrNew(maybeData[0]);
+                    listView1.Items.Add(datastr);
+                    for (int i = 1; i < 11; i++)
                     {
                         listView1.Items[flg].SubItems.Add(maybeData[i].ToString());
                     }

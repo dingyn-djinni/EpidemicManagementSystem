@@ -53,9 +53,10 @@
             // 
             login.BackColor = System.Drawing.SystemColors.Highlight;
             login.ForeColor = System.Drawing.SystemColors.HighlightText;
-            login.Location = new System.Drawing.Point(133, 188);
+            login.Location = new System.Drawing.Point(177, 235);
+            login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             login.Name = "login";
-            login.Size = new System.Drawing.Size(119, 33);
+            login.Size = new System.Drawing.Size(159, 41);
             login.TabIndex = 2;
             login.Text = " 登录";
             login.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -66,18 +67,20 @@
             // 
             this.textBox1.Cursor = System.Windows.Forms.Cursors.PanWest;
             this.textBox1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(117, 113);
+            this.textBox1.Location = new System.Drawing.Point(156, 141);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 23);
+            this.textBox1.Size = new System.Drawing.Size(309, 27);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(117, 160);
+            this.textBox2.Location = new System.Drawing.Point(156, 200);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(233, 21);
+            this.textBox2.Size = new System.Drawing.Size(309, 25);
             this.textBox2.TabIndex = 1;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -85,9 +88,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label1.Location = new System.Drawing.Point(70, 118);
+            this.label1.Location = new System.Drawing.Point(93, 148);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "用户名";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -95,9 +99,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(70, 163);
+            this.label3.Location = new System.Drawing.Point(93, 204);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 5;
             this.label3.Text = "密码";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -105,18 +110,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(244, 224);
+            this.label2.Location = new System.Drawing.Point(318, 280);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 12);
+            this.label2.Size = new System.Drawing.Size(183, 15);
             this.label2.TabIndex = 6;
-            this.label2.Text = "develop by Team 0cal";
+            this.label2.Text = "developed by Team 0cal";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // quit
             // 
-            this.quit.Location = new System.Drawing.Point(258, 187);
+            this.quit.Location = new System.Drawing.Point(344, 234);
+            this.quit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.quit.Name = "quit";
-            this.quit.Size = new System.Drawing.Size(92, 32);
+            this.quit.Size = new System.Drawing.Size(123, 40);
             this.quit.TabIndex = 7;
             this.quit.Text = "退出";
             this.quit.UseVisualStyleBackColor = true;
@@ -124,20 +131,20 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(160, 201);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(213, 251);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(6, 6);
+            this.button1.Size = new System.Drawing.Size(8, 8);
             this.button1.TabIndex = 8;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // register
             // 
-            this.register.Location = new System.Drawing.Point(37, 189);
-            this.register.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.register.Location = new System.Drawing.Point(49, 236);
+            this.register.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.register.Name = "register";
-            this.register.Size = new System.Drawing.Size(92, 32);
+            this.register.Size = new System.Drawing.Size(123, 40);
             this.register.TabIndex = 9;
             this.register.Text = "注册";
             this.register.UseVisualStyleBackColor = true;
@@ -146,9 +153,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(37, 113);
+            this.pictureBox2.Location = new System.Drawing.Point(49, 141);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox2.Size = new System.Drawing.Size(36, 29);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
@@ -156,9 +164,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(37, 157);
+            this.pictureBox1.Location = new System.Drawing.Point(49, 196);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(27, 24);
+            this.pictureBox1.Size = new System.Drawing.Size(36, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
@@ -166,9 +175,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(21, 18);
+            this.pictureBox4.Location = new System.Drawing.Point(28, 22);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(355, 75);
+            this.pictureBox4.Size = new System.Drawing.Size(473, 94);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 17;
             this.pictureBox4.TabStop = false;
@@ -176,18 +186,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(292, 245);
+            this.label4.Location = new System.Drawing.Point(389, 306);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.Size = new System.Drawing.Size(103, 15);
             this.label4.TabIndex = 18;
-            this.label4.Text = "version: 0.4";
+            this.label4.Text = "version: 1.0";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 264);
+            this.ClientSize = new System.Drawing.Size(505, 330);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox1);
@@ -201,6 +212,7 @@
             this.Controls.Add(login);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "疫情管理系统登陆界面";

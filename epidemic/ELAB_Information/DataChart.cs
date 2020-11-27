@@ -1,7 +1,7 @@
 ﻿/*
  * name：图表视图
  * description：这一页面是图表视图页面，以折线图的形式展示最近十五天的全国疫情走势
- * date:2020.11.24
+ * date:2020.11.25
  * author:Yuning Ding;
  */
 using System;
