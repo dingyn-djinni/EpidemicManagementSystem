@@ -462,7 +462,7 @@ namespace ELAB_Information
 
             if (reader.Read())
             {
-                string city = reader.GetString("province");
+                string city = reader.GetString("city");
                 listname = city;
                 sqlstr = "select * from " + city;
                 updateView(sqlstr);

@@ -39,8 +39,7 @@ namespace ELAB_Information
         public static int level;
         public static string id;
         //数据库连接语句，方便修改，（极为不安全,这句话本身应该做加密，普通用户应该使用只读数据库账号连接，对于管理员用户考虑输入数据库密码也不是不可以）
-        private const string connectStr="server=140.143.54.132;port=3306;database=epidemic;user=root;password=6a406dee537e603d;";
-        
+        private const string connectStr = "";
         //对数据库进行各种修改的统一语句
         public static int sqlExcuteChange(string sql)
         {
