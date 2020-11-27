@@ -80,5 +80,5 @@ WangShijie(Delohada)：数据输入模块和界面设计
 
 XinZhao(deepoceanloader): 界面设计和模块开发
 
-[YuningDing(djinni)](djinni.club)：团队的架构师和测试工程师，无情的coding robot。
+[YuningDing(djinni)](djinni.club)：团队的架构师和测试工程师，无情的coding bot。
 
